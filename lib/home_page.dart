@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:movie_app/pages/search_movies.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
@@ -40,11 +38,8 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return KeyboardDismisser(
-      gestures: const [
-        GestureType.onVerticalDragDown,
-        GestureType.onTap,
-      ],
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
       child: Scaffold(
         appBar: AppBar(
             title: const Center(
